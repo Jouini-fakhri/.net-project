@@ -5,14 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 style="color: red;">@ViewData["Title"]</h1>
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
+<form method="post" action="@Url.Action("Edit")">
+    <input type="hidden" name="Id" value="@Model.Id" />
 
     <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" />
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" name="Name" class="form-control" value="@Model.Name" />
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>

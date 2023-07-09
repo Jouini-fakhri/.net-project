@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 style="color: red;">@ViewData["Title"]</h1>
 <a href="@Url.Action("Create")" class="btn btn-primary">Add Task</a>
 
 <form method="get" action="@Url.Action("Index")">
@@ -12,12 +12,13 @@
         <label for="searchInput">Search by Title:</label>
         <input type="text" id="searchInput" name="searchString" class="form-control" />
     </div>
-   <div class="mt-2">
-<button type="submit" class="btn btn-primary">Search</button>  <a href="@Url.Action("Index")" class="btn btn-primary">Clear</a>
-
-   </div>
+    <div class="mt-2">
+        <button type="submit" class="btn btn-primary">Search</button>
+        <a href="@Url.Action("Index")" class="btn btn-primary">Clear</a>
+    </div>
 </form>
-<table class="table">
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Task ID</th>
@@ -26,7 +27,8 @@
             <th>Status</th>
             <th>Closed At</th>
             <th>Created At</th>
-            <th> Project id</th>
+            <th>Project ID</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -37,14 +39,15 @@
                 <td>@task.Title</td>
                 <td>@task.Priority</td>
                 <td>@task.Status</td>
-                <td>@task.createdAt</td>
                 <td>@task.closedAt</td>
-                       <td>@task.ProjectId</td>
-                         <td>
+                <td>@task.createdAt</td>
+                <td>@task.ProjectId</td>
+                <td>
                     <a href="@Url.Action("Edit", new { id = task.Id })" class="btn btn-primary">Edit</a>
-                      <a href="@Url.Action("Delete", new { id = task.Id })" class="btn btn-danger">Delete</a>
+                    <a href="@Url.Action("Delete", new { id = task.Id })" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+

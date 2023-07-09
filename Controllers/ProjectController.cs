@@ -3,11 +3,11 @@ using TicketAPP.Data;
 using TicketAPP.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace TicketAPP.Controllers
 {
-[Microsoft.AspNetCore.Authorization.Authorize]
     public class ProjectController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,12 +23,14 @@ namespace TicketAPP.Controllers
             return View(projects);
         }
 
-          public IActionResult Create()
+        [Authorize]
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create(Project project)
         {
             if (ModelState.IsValid)
@@ -43,6 +45,7 @@ namespace TicketAPP.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Edit(int id)
         {
             var project = _context.Projects.Find(id);
@@ -56,6 +59,7 @@ namespace TicketAPP.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Edit(Project project)
         {
             if (ModelState.IsValid)
@@ -70,6 +74,7 @@ namespace TicketAPP.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             var project = _context.Projects.Find(id);
@@ -83,6 +88,7 @@ namespace TicketAPP.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult DeleteConfirmed(int id)
         {
             var project = _context.Projects.Find(id);
@@ -100,14 +106,14 @@ namespace TicketAPP.Controllers
 
         public IActionResult Details(int id)
         {
-       var project = _context.Projects.Include(p => p.Tasks).FirstOrDefault(p => p.Id == id);
+            var project = _context.Projects.Include(p => p.Tasks).FirstOrDefault(p => p.Id == id);
 
-    if (project == null)
-    {
-        return NotFound();
-    }
+            if (project == null)
+            {
+                return NotFound();
+            }
 
-    return View(project);
+            return View(project);
         }
     }
 }

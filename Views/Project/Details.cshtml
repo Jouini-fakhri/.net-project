@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 style="color: red;">@ViewData["Title"]</h1>
 
 <div>
     <h4>Project details:</h4>
@@ -17,7 +17,7 @@
 
     <h4>Tasks:</h4>
     <hr />
-    <h1>@ViewData["Title"]</h1>
+    <h1 style="color: red;">@ViewData["Title"]</h1>
 <a href="@Url.Action("Create", "Task")" class="btn btn-primary">Add Task</a>
 
 <form method="get" action="@Url.Action("Index")">

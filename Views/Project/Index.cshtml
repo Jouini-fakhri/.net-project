@@ -4,12 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 style="color: red;">@ViewData["Title"]</h1>
 <a href="@Url.Action("Create")" class="btn btn-primary">Add Project</a>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>Project</th>
+            <th>Project ID</th>
+            <th>Project Name</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -18,10 +20,10 @@
             <tr>
                 <td>@project.Id</td>
                 <td>@project.Name</td>
-                         <td>
-                            <a href="@Url.Action("Details", new { id = project.Id })" class="btn btn-danger">View</a>
+                <td>
+                    <a href="@Url.Action("Details", new { id = project.Id })" class="btn btn-info">View</a>
                     <a href="@Url.Action("Edit", new { id = project.Id })" class="btn btn-primary">Edit</a>
-                      <a href="@Url.Action("Delete", new { id = project.Id })" class="btn btn-danger">Delete</a>
+                    <a href="@Url.Action("Delete", new { id = project.Id })" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }

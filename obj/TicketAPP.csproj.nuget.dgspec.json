@@ -1,26 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mac/work/tekup/TicketAPP/TicketAPP.csproj": {}
+    "C:\\Users\\Fakhri\\Desktop\\projet_net\\.net-ticket-app\\TicketAPP.csproj": {}
   },
   "projects": {
-    "/Users/mac/work/tekup/TicketAPP/TicketAPP.csproj": {
+    "C:\\Users\\Fakhri\\Desktop\\projet_net\\.net-ticket-app\\TicketAPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mac/work/tekup/TicketAPP/TicketAPP.csproj",
+        "projectUniqueName": "C:\\Users\\Fakhri\\Desktop\\projet_net\\.net-ticket-app\\TicketAPP.csproj",
         "projectName": "TicketAPP",
-        "projectPath": "/Users/mac/work/tekup/TicketAPP/TicketAPP.csproj",
-        "packagesPath": "/Users/mac/.nuget/packages/",
-        "outputPath": "/Users/mac/work/tekup/TicketAPP/obj/",
+        "projectPath": "C:\\Users\\Fakhri\\Desktop\\projet_net\\.net-ticket-app\\TicketAPP.csproj",
+        "packagesPath": "C:\\Users\\Fakhri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Fakhri\\Desktop\\projet_net\\.net-ticket-app\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/mac/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Fakhri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/sdk/7.0.305/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.305\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -79,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.305/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     }
