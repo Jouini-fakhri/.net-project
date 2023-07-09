@@ -1,0 +1,29 @@
+@model IEnumerable<TicketAPP.Models.Project>
+@{
+    ViewData["Title"] = "Project List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+<a href="@Url.Action("Create")" class="btn btn-primary">Add Project</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Project</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.Id</td>
+                <td>@project.Name</td>
+                         <td>
+                            <a href="@Url.Action("Details", new { id = project.Id })" class="btn btn-danger">View</a>
+                    <a href="@Url.Action("Edit", new { id = project.Id })" class="btn btn-primary">Edit</a>
+                      <a href="@Url.Action("Delete", new { id = project.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

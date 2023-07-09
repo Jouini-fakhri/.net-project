@@ -1,0 +1,21 @@
+@model TicketAPP.Models.Task
+@{
+    ViewData["Title"] = "Delete Task";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Are you sure you want to delete this task?</h3>
+<p>
+    <strong>Task ID:</strong> @Model.Id<br />
+    <strong>Title:</strong> @Model.Title<br />
+    <!-- Add other task details as needed -->
+</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+</form>

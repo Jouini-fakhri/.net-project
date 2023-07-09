@@ -1,0 +1,71 @@
+@model TicketAPP.Models.Project
+
+@{
+    ViewData["Title"] = "Project Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Project details:</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Name:</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+    </dl>
+
+    <h4>Tasks:</h4>
+    <hr />
+    <h1>@ViewData["Title"]</h1>
+<a href="@Url.Action("Create", "Task")" class="btn btn-primary">Add Task</a>
+
+<form method="get" action="@Url.Action("Index")">
+    <div class="form-group">
+        <label for="searchInput">Search by Title:</label>
+        <input type="text" id="searchInput" name="searchString" class="form-control" />
+    </div>
+   <div class="mt-2">
+<button type="submit" class="btn btn-primary">Search</button>  <a href="@Url.Action("Index")" class="btn btn-primary">Clear</a>
+
+   </div>
+</form>
+@if (Model.Tasks != null && Model.Tasks.Any())
+    {
+        <table class="table">
+            <thead>
+                    <tr>
+            <th>Task ID</th>
+            <th>Title</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Closed At</th>
+            <th>Created At</th>
+        </tr>
+            </thead>
+           <tbody>
+        @foreach (var task in Model.Tasks)
+        {
+            <tr>
+                <td>@task.Id</td>
+                <td>@task.Title</td>
+                <td>@task.Priority</td>
+                <td>@task.Status</td>
+                <td>@task.createdAt</td>
+                <td>@task.closedAt</td>
+                         <td>
+                    <a href="@Url.Action("Edit", "Task", new { id = task.Id })" class="btn btn-primary">Edit</a>
+                      <a href="@Url.Action("Delete", "Task", new { id = task.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No tasks found.</p>
+    }
+
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

@@ -1,0 +1,50 @@
+@model IEnumerable<TicketAPP.Models.Task>
+@{
+    ViewData["Title"] = "Task List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+<a href="@Url.Action("Create")" class="btn btn-primary">Add Task</a>
+
+<form method="get" action="@Url.Action("Index")">
+    <div class="form-group">
+        <label for="searchInput">Search by Title:</label>
+        <input type="text" id="searchInput" name="searchString" class="form-control" />
+    </div>
+   <div class="mt-2">
+<button type="submit" class="btn btn-primary">Search</button>  <a href="@Url.Action("Index")" class="btn btn-primary">Clear</a>
+
+   </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Task ID</th>
+            <th>Title</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Closed At</th>
+            <th>Created At</th>
+            <th> Project id</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Id</td>
+                <td>@task.Title</td>
+                <td>@task.Priority</td>
+                <td>@task.Status</td>
+                <td>@task.createdAt</td>
+                <td>@task.closedAt</td>
+                       <td>@task.ProjectId</td>
+                         <td>
+                    <a href="@Url.Action("Edit", new { id = task.Id })" class="btn btn-primary">Edit</a>
+                      <a href="@Url.Action("Delete", new { id = task.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
